@@ -1,24 +1,48 @@
-const dbConfig = require("../config/config");
+const  Pet = require('./Pet')
+const  User= require('./User')
+const Dx = require('./Dx')
+const Meds = require('./Meds')
+const Vax = require('./Vax')
+const Image = require('./image.model')
 
-const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: false,
 
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle,
-  },
-});
+User.hasMany(Pet, {
+    foreignKey: 'user_id'
+})
 
-const db = {};
+Pet.belongsTo(User, {
+    foreignKey: 'user_id'
+})
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+Pet.hasMany(Dx, {
+    foreignKey: 'pet_id'
+})
 
-db.images = require("./image.model")(sequelize, Sequelize);
+Dx.belongsTo(Pet, {
+    foreignKey: 'pet_id'
+})
 
-module.exports = db;
+Pet.hasMany(Meds, {
+    foreignKey: 'pet_id'
+})
+Meds.belongsTo(Pet, {
+    foreignKey: 'pet_id'
+})
+
+Pet.hasMany(Vax, {
+    foreignKey: 'pet_id'
+})
+
+Vax.belongsTo(Pet, {
+    foreignKey: 'pet_id'
+})
+
+Pet.hasOne(Image, {
+    foreignKey: 'pet_id'
+})
+
+Image.belongsTo(Pet, {
+    foreignKey: 'pet_id'
+})
+
+module.exports = { Pet, User, Dx, Meds, Vax, Image }

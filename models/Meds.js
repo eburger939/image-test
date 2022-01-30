@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Image extends Model {
+class Meds extends Model {
 }
 
-Image.init(
+Meds.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,25 +12,26 @@ Image.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    type: {
+    medication: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    last_given: {
         type: DataTypes.STRING,
         allowNull: true,
-    },
-    name: {
+      },
+    next_due: {
         type: DataTypes.STRING,
         allowNull: true,
-    },
-    data: {
-        type: DataTypes.BLOB("long"),
-    },
-    pet_id :{
+      },
+    pet_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
             model: 'pet',
             key: 'id'
         }
-    },
+    }
 
   },
   {
@@ -38,8 +39,8 @@ Image.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'image',
+    modelName: 'meds',
   }
 );
 
-module.exports = Image;
+module.exports = Meds;

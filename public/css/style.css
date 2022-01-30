@@ -1,0 +1,101 @@
+.header-text {
+    margin-left: 15px;
+    letter-spacing: 0.25rem;
+
+}
+
+.custom-container {
+    border-bottom: 3px solid #1c1c20;
+    background-image: linear-gradient(white 50%, rgb(110, 78, 161));
+}
+
+.card-container {
+    margin-top: 5rem;
+}
+
+.all-card {
+    border: solid #1c1c20 2px;
+    border-radius: 5%;
+}
+
+.cust-card-header {
+    color: white;
+    background-color: #1c1c20;
+    padding: 1rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.custom-btn {
+    background-color: #1c1c20;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.register {
+    font-size: 15px;
+    color: black
+}
+a {
+    text-decoration: none;
+}
+
+.footer {
+   margin-bottom: 0;
+}
+
+.custom-abuttonOne {
+    background-color: rgb(69, 124, 168);
+    color: white;
+
+}
+
+.custom-abuttonTwo {
+    background-color: rgb(51, 131, 64);
+    color: white;
+}
+
+.custom-abuttonThree {
+    background-color: rgb(170, 90, 143);
+    color: white;
+}
+
+.custom-abuttonFour {
+    background-color: rgb(158, 102, 17);
+    color: white;
+}
+
+.new-pet1 {
+    background-color: rgb(144, 207, 144);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    border: none;
+}
+
+.new-pet {
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+.custom-container1 {
+    margin-top: 1rem;
+    background-color: lightblue;
+    padding: 10px;
+    width: 45%;
+    border-radius: 30px;
+    border: solid rgb(67, 67, 175) 10px;
+    margin-bottom: 10rem;
+}
+.custom-col2 {
+    padding-top: 15px;
+}

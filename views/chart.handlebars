@@ -1,0 +1,158 @@
+<button class="goBack">Back</button>
+
+<div class="container card-container">
+
+    <div class="row chart-row justify-content-between">
+        <div class="col-3">
+            <div class="card">
+                <img src="https://via.placeholder.com/140x100" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{pet.pet_name}}</h5>
+                </div>
+            </div>
+            <div><button>Export chart to PDF</button></div>
+        </div>
+
+        <div class="col-9">
+            <div class="accordion" id="aone">
+                <div class="accordion-item custom-item">
+                    <h2 class="accordion-header custom-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button custom-abuttonOne" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Demographics
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <div class="container justify-content-between">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="demo"><strong>Pet Information </strong></div>
+                                        <div class="demo"><strong>Name:</strong> {{pet.pet_name}}</div>
+                                        <div class="demo"><strong>Age: </strong>{{pet.age}} </div>
+                                        <div class="demo"><strong>Gender:</strong> {{pet.gender}} </div>
+                                        <div class="demo"><strong>Breed:</strong> {{pet.breed}}</div>
+                                    </div>
+                                                                            <div class="col">
+                                            <div class="demo"><strong>Veterinarian Information </strong></div>
+                                            <div class="demo"><strong>Vet Clinic: </strong>{{pet.vet_clinic}} </div>
+                                            <div class="demo"><strong>Vet Name: </strong>{{pet.vet_name}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header custom-header" id="panelsStayOpen-headingTwo">
+                                    <button class="accordion-button collapsed custom-abuttonTwo" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                        Diagnoses
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingTwo">
+                                    <div class="accordion-body">
+                                        {{#each pet.dxes as |dx|}}
+                                        <div class="demo">{{dx.diagnosis}} </div>
+                                        {{/each}}
+                                        <br><br>
+                                    <div class="input-group">
+                                    <span class="input-group-text">Add New</span>
+                                    <input type="text" placeholder = "Diagnosis" aria-label="Diagnosis" data-id="{{pet.id}}" id="new-dx" class="form-control new-dx">
+                                    <button class="saveDx">Save</button>
+                                  </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header custom-header" id="panelsStayOpen-headingThree">
+                                    <button class="accordion-button collapsed custom-abuttonThree" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                        Medications
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingThree">
+                                    <div class="accordion-body">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <th>Medication Name</th>
+                                                <th>Last Given</th>
+                                                <th>Next Due</th>
+                                            </tr>
+                                            {{#each pet.meds as |med|}}
+                                            <tr>
+                                                <td>{{med.medication}}</td>
+                                                <td>{{med.last_given}}</td>
+                                                <td>{{med.next_due}}</td>
+                                                <td><button>Delete</button></td>
+                                            </tr>
+                                            {{/each}}
+
+                                        </table>
+                                        <br><br>
+                                    <div class="input-group">
+                                    <span class="input-group-text">Add New</span>
+                                    <input type="text" placeholder = "Medication" aria-label="Medication" data-id="{{pet.id}}" id="new-med" class="form-control new-med">
+                                    <input type="text" placeholder = "Last Given" aria-label="mLast-Given" data-id="{{pet.id}}" id="med-given" class="form-control med-given">
+                                    <input type="text" placeholder = "Next Due" aria-label="mNext-Due" data-id="{{pet.id}}" id="next-due" class="form-control next-due">
+                                    <button class="saveMed">Save</button>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header custom-header" id="panelsStayOpen-headingFour">
+                                    <button class="accordion-button collapsed custom-abuttonFour" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour"
+                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                        Vaccinations
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingFour">
+                                    <div class="accordion-body">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <th>Vaccine</th>
+                                                <th>Last Given</th>
+                                                <th>Next Due</th>
+                                            </tr>
+                                            {{#each pet.vaxes as |vax|}}
+                                            <tr>
+                                                <td>{{vax.vax_name}}</td>
+                                                <td>{{vax.administered_date}}</td>
+                                                <td>{{vax.next_due}}</td>
+                                                <td><button>Delete</button></td>
+                                            </tr>
+                                            {{/each}}
+
+
+                                        </table>
+                                        <br><br>
+                                     
+                                  <div class="input-group">
+                                    <span class="input-group-text">Add New</span>
+                                    <input type="text" placeholder = "Vaccine" aria-label="Vaccine" data-id="{{pet.id}}" id="new-vax" class="form-control new-vax">
+                                    <input type="text" placeholder = "Last Given" aria-label="vLast-Given" data-id="{{pet.id}}" id="vax-given" class="form-control new-vax">
+                                    <input type="text" placeholder = "Next Due" aria-label="vNext-Due" data-id="{{pet.id}}" id="vax-due" class="form-control new-vax">
+                                    <button class="saveVax">Save</button>
+                                  </div>
+                                    
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script src="/js/petChart.js"></script>
+<script src="/js/updatePet.js"></script>
+            

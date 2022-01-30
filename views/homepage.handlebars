@@ -1,0 +1,39 @@
+
+<div class="container card-container justify-content-center">
+
+
+        <div class="row justify-content-center">
+             
+{{#each pets as |pet|}}
+            <div class="col-3">
+                <div class="card" id={{pet.id}}>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/140x100" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            
+                            <h5 class="card-title text-center">{{pet.pet_name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <br>
+         <div class="row justify-content-center">
+            <div class="col-4">
+
+                    <div class="card-body custom-new text-center">
+                         <a href="/new"><button class="new-pet1">Add New Pet</button></a> 
+                    </div>
+
+
+            </div>
+      
+        </div>
+    </div>
+
+
+<script src="./js/petChart.js"></script>
+
+
+

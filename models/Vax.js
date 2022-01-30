@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Image extends Model {
+class Vax extends Model {
 }
 
-Image.init(
+Vax.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,20 +12,21 @@ Image.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    type: {
-        type: DataTypes.STRING,
-        allowNull: true,
+    vax_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    name: {
+    administered_date: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false
     },
-    data: {
-        type: DataTypes.BLOB("long"),
+    next_due: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
     pet_id :{
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
             model: 'pet',
             key: 'id'
@@ -38,8 +39,8 @@ Image.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'image',
+    modelName: 'vax',
   }
 );
 
-module.exports = Image;
+module.exports = Vax;
